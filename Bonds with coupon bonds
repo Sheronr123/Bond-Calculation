@@ -1,0 +1,14 @@
+class CouponBonds():
+    def __init__(self, coupon_payment,interest_rate, timetoM, principal_value):
+        self.coupon_payment = int(coupon_payment)
+        self.interest_rate = float(float(interest_rate)/100)
+        self.timetoM = int(timetoM)
+        self.principal_value = int(principal_value)
+
+    def calculate_bond(self):
+        coupon = self.coupon_payment * ((1-(1+self.interest_rate)**-self.timetoM)/self.interest_rate)
+        principal = self.principal_value/(1+self.interest_rate)**self.timetoM
+        return coupon + principal
+
+bond = CouponBonds('100','4','3','1000')
+print(f'The current price of the bond with coupon is: {bond.calculate_bond():.2f}')

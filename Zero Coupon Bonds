@@ -1,0 +1,13 @@
+class ZeroCouponBonds:
+
+    def __init__(self, principal, maturity, interest):
+        self.principal = principal
+        self.maturity = maturity
+        self.interest = interest/100
+
+    def calculate_present(self):
+        return self.principal/(1+self.interest)**self.maturity
+
+
+bond = ZeroCouponBonds(1000,2,4)
+print(f'Price of the current bond is: {bond.calculate_present():.2f}')
